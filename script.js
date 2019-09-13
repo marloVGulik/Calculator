@@ -1,68 +1,77 @@
 var all = [];
 var text = "";
-var number;
+var numberTotal = 0;
 var numberPart = "";
 var numberPartOld = "";;
 var oldCalculation = "";
 var localAll;
 
 function addNumber(number) {
+	console.log("Added: " + number);
 	all.push(number);
 	text = "";
 	localAll = "";
+	numberPart = "";
 	for (var i = 0; i < all.length; i++) {
 		if(typeof all[i] == 'string') {
 			if(all[i] == "Times") {
-				console.log("Added: " + all[i]);
 				localAll = calculateOld();
 				oldCalculation = "Times";
 			} else if(all[i] == 'Devide') {
-				console.log("Added: " + all[i]);
 				localAll = calculateOld();
 				oldCalculation = "Devide";
 			} else if(all[i] == 'Add') {
-				console.log("Added: " + all[i]);
 				localAll = calculateOld();
 				oldCalculation = "Add";
 			} else if(all[i] == 'Minus') {
-				console.log("Added: " + all[i]);
 				localAll = calculateOld();
 				oldCalculation = "Minus";
+			} else if(all[i] == 'Final') {
+				localAll = calculateOld();
+				oldCalculation = "Final";
 			}
 		} else {
-			console.log("Added: " + all[i]);
-			numberPart += all[i]
+			numberPart += parseInt(all[i])
+			console.log("Number = " + numberPart);
 		}
-		console.log(all[i] + i);
+		console.log(localAll);
 		text += all[i];
 	}
 	document.getElementById("showSum").innerHTML = text;
+	document.getElementById("showAnswer").innerHTML = localAll;
 }
 
 
 function calculateOld(CurrentNumber) {
-	if(oldCalculation == "Times") {
-		console.log(numberPartOld + " times " + numberPart);
-		number = parseInt(numberPartOld) * parseInt(numberPart);
-		numberPartOld = numberPart;
-		numberPart = "";
-	} else if(oldCalculation == "Devide") {
-		console.log(numberPartOld + " devide " + numberPart);
-		number = parseInt(numberPartOld) / parseInt(numberPart);
+	if(oldCalculation == "Final") {
+		console.log("FINAL");
+	} else if(oldCalculation == "Minus") {
+		console.log(numberPartOld + " minus " + numberPart);
+		number = parseInt(localAll);
+		localAll = parseInt(numberPartOld) - parseInt(numberPart);
 		numberPartOld = numberPart;
 		numberPart = "";
 	} else if(oldCalculation == "Add") {
 		console.log(numberPartOld + " plus " + numberPart);
-		number = parseInt(numberPartOld) + parseInt(numberPart);
+		number = parseInt(localAll);
+		localAll = parseInt(numberPartOld) + parseInt(numberPart);
 		numberPartOld = numberPart;
 		numberPart = "";
-	} else if(oldCalculation == "Minus") {
-		console.log(numberPartOld + " minus " + numberPart);
-		number = parseInt(numberPartOld) - parseInt(numberPart);
+	} else if(oldCalculation == "Devide") {
+		console.log(numberPartOld + " devide " + numberPart);
+		number = parseInt(localAll);
+		localAll = parseInt(numberPartOld) / parseInt(numberPart);
+		numberPartOld = numberPart;
+		numberPart = "";
+	} else if(oldCalculation == "Times") {
+		console.log(numberPartOld + " times " + numberPart);
+		number = parseInt(localAll);
+		localAll = parseInt(numberPartOld) * parseInt(numberPart);
 		numberPartOld = numberPart;
 		numberPart = "";
 	}
-	all.push(number);
+
+	return localAll;
 }
 
 function clear() {
