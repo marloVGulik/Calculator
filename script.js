@@ -10,7 +10,7 @@ function addNumber(number) {
 	console.log("Added: " + number);
 	all.push(number);
 	text = "";
-	localAll = "";
+	localAll = "The answer will appear here";
 	numberPart = "";
 	for (var i = 0; i < all.length; i++) {
 		if(typeof all[i] == 'string') {
@@ -79,9 +79,9 @@ function calculateOld(CurrentNumber) {
 function clearElements(clearThem) {
 	if(clearThem == true) {
 		localAll = "";
-		document.getElementById("showSum").innerHTML = "";
+		document.getElementById("showSum").innerHTML = "Start pressing buttons";
 		console.log("Cleared screen");
-		document.getElementById("showAnswer").innerHTML = "";
+		document.getElementById("showAnswer").innerHTML = "The answer will appear here";
 		text = "";
 		localAll = "";
 		numberPart = "";

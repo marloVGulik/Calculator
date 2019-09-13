@@ -11,3 +11,16 @@ button {
 	width: 100px;
 	height: 50px;
 }
+#homeDiv { 	
+	background-color: #AAAAAAFF;
+	width: 415px;
+}
+#screen {
+	margin: auto;
+	align-content: flex-start;
+	border: 10px;
+	border-color:  #3D623BFF;
+	width: 400px;
+	background-color: #3D623BFF;
+	z-index: 1
+}
