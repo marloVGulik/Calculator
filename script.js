@@ -14,21 +14,23 @@ function addNumber(number) {
 	numberPart = "";
 	for (var i = 0; i < all.length; i++) {
 		if(typeof all[i] == 'string') {
-			if(all[i] == "Times") {
+			if(all[i] == "Pop") {
+				console.log(all.pop());
+			} else if(all[i] == "x") {
 				localAll = calculateOld();
-				oldCalculation = "Times";
-			} else if(all[i] == 'Devide') {
+				oldCalculation = "x";
+			} else if(all[i] == '/') {
 				localAll = calculateOld();
-				oldCalculation = "Devide";
-			} else if(all[i] == 'Add') {
+				oldCalculation = "/";
+			} else if(all[i] == '+') {
 				localAll = calculateOld();
-				oldCalculation = "Add";
-			} else if(all[i] == 'Minus') {
+				oldCalculation = "+";
+			} else if(all[i] == '-') {
 				localAll = calculateOld();
-				oldCalculation = "Minus";
-			} else if(all[i] == 'Final') {
+				oldCalculation = "-";
+			} else if(all[i] == '=') {
 				localAll = calculateOld();
-				oldCalculation = "Final";
+				oldCalculation = "=";
 			}
 		} else {
 			numberPart += parseInt(all[i])
@@ -43,28 +45,28 @@ function addNumber(number) {
 
 
 function calculateOld(CurrentNumber) {
-	if(oldCalculation == "Final") {
-		console.log("FINAL");
-	} else if(oldCalculation == "Minus") {
-		console.log(numberPartOld + " minus " + numberPart);
+	if(oldCalculation == "=") {
+		console.log("=");
+	} else if(oldCalculation == "-") {
+		console.log(numberPartOld + " - " + numberPart);
 		number = parseInt(localAll);
 		localAll = parseInt(numberPartOld) - parseInt(numberPart);
 		numberPartOld = numberPart;
 		numberPart = "";
-	} else if(oldCalculation == "Add") {
-		console.log(numberPartOld + " plus " + numberPart);
+	} else if(oldCalculation == "+") {
+		console.log(numberPartOld + " + " + numberPart);
 		number = parseInt(localAll);
 		localAll = parseInt(numberPartOld) + parseInt(numberPart);
 		numberPartOld = numberPart;
 		numberPart = "";
-	} else if(oldCalculation == "Devide") {
-		console.log(numberPartOld + " devide " + numberPart);
+	} else if(oldCalculation == "/") {
+		console.log(numberPartOld + " / " + numberPart);
 		number = parseInt(localAll);
 		localAll = parseInt(numberPartOld) / parseInt(numberPart);
 		numberPartOld = numberPart;
 		numberPart = "";
-	} else if(oldCalculation == "Times") {
-		console.log(numberPartOld + " times " + numberPart);
+	} else if(oldCalculation == "x") {
+		console.log(numberPartOld + " x " + numberPart);
 		number = parseInt(localAll);
 		localAll = parseInt(numberPartOld) * parseInt(numberPart);
 		numberPartOld = numberPart;
@@ -74,8 +76,15 @@ function calculateOld(CurrentNumber) {
 	return localAll;
 }
 
-function clear() {
-	localAll = "";
-	document.getElementById("showSum").innerHTML = " ";
-	console.log("Cleared screen");
+function clearElements(clearThem) {
+	if(clearThem == true) {
+		localAll = "";
+		document.getElementById("showSum").innerHTML = "";
+		console.log("Cleared screen");
+		document.getElementById("showAnswer").innerHTML = "";
+		text = "";
+		localAll = "";
+		numberPart = "";
+		all = [];
+	}
 }

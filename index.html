@@ -6,40 +6,40 @@
 	<title>Calculator</title>
 </head>
 <body>
-	<h1>CALCULATOR V1.0</h1>
+	<h1>CALCULATOR V2.0</h1>
 	<br>
 	<p id="showSum"></p>
 	<p id="showAnswer"></p>
 	<div>
 		<div id="buttonPanel">
-			<button onclick="clear()">CE</button>
-			<button onclick="clear()">C</button>
-			<button onclick="addNumber()">Remove</button>
-			<button onclick="addNumber('Devide')">/</button>
+			<button onclick="clearElements(true)">CE</button>
+			<button onclick="clearElements(true)">C</button>
+			<button onclick="addNumber('Pop')">Remove</button>
+			<button onclick="addNumber('/')">/</button>
 		</div>
 		<div id="buttonPanel">
 			<button onclick="addNumber(7)">7</button>
 			<button onclick="addNumber(8)">8</button>
 			<button onclick="addNumber(9)">9</button>
-			<button onclick="addNumber('Times')">x</button>
+			<button onclick="addNumber('x')">x</button>
 		</div>
 		<div id="buttonPanel">
 			<button onclick="addNumber(4)">4</button>
 			<button onclick="addNumber(5)">5</button>
 			<button onclick="addNumber(6)">6</button>
-			<button onclick="addNumber('Minus')">-</button>
+			<button onclick="addNumber('-')">-</button>
 		</div>
 		<div id="buttonPanel">
 			<button onclick="addNumber(1)">1</button>
 			<button onclick="addNumber(2)">2</button>
 			<button onclick="addNumber(3)">3</button>
-			<button onclick="addNumber('Add')">+</button>
+			<button onclick="addNumber('+')">+</button>
 		</div>
 		<div id="buttonPanel">
 			<button onclick="addNumber()">?</button>
 			<button onclick="addNumber(0)">0</button>
 			<button onclick="addNumber(.)">.</button>
-			<button onclick="addNumber('Final')">=</button>
+			<button onclick="addNumber('=')">=</button>
 		</div>
 	</div>
 </body>
